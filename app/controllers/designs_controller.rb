@@ -4,18 +4,41 @@ class DesignsController < ApplicationController
   before_action :authenticate_propetary, only: [:edit, :update, :Destroy]
 
   def show
-      @design = find_params
-      @propetary = propetary
-      commontator_thread_show(@design)
-    end
+    @design = find_params
+    @propetary = propetary
+    commontator_thread_show(@design)
+  end
+
 
   def new
     @design = current_user.designs.new
   end
 
+
+  def filter_gender
+  end
+
+  def filter_season
+    @gender = gender_params
+  end
+
+  def filter
+    @gender = gender_params
+    @season = season_params
+    if @gender == "all" &&   @season == "all"
+      @designs = Design.all
+    elsif @gender == "all"
+      @designs = Design.where(season: @season)
+    elsif @season == "all"
+        @designs = Design.where(gender: @gender)
+      else
+        @designs = Design.where(gender: @gender, season: @season)
+      end
+  end
+
   def create
-  @design = current_user.designs.new(design_params)
-  respond_to do |format|
+    @design = current_user.designs.new(design_params)
+    respond_to do |format|
     if @design.save
       format.html { redirect_to @design, notice: "great #{current_user.name}! Your design was created successfully." }
       format.json { render action: 'show', status: :created, location: @design }
@@ -24,16 +47,17 @@ class DesignsController < ApplicationController
       format.json { render json: @design.errors, status: :unprocessable_entity }
     end
   end
-end
+  end
 
-def designs
+  def designs
   @designs = Design.page(params[:page]).per(9)
-    respond_to do |format|
+  respond_to do |format|
       format.html
       format.js
 
-    end
   end
+  end
+
 
   def update
       @design = find_params
@@ -75,7 +99,15 @@ def designs
   end
 
   def find_params
-  @design = Design.find(params[:id])
+    @design = Design.find(params[:id])
+  end
+
+  def gender_params
+    (params[:gender])
+  end
+
+  def season_params
+    (params[:season])
   end
 
   def propetary
@@ -88,6 +120,4 @@ def designs
      redirect_to @design
      end
   end
-
-
 end
