@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001150321) do
+ActiveRecord::Schema.define(version: 20161001192408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "designs", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "gender",      null: false
-    t.string   "season",      null: false
+    t.string   "title",              null: false
+    t.text     "description",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "gender",             null: false
+    t.string   "season",             null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_designs_on_user_id", using: :btree
   end
 
@@ -42,6 +46,10 @@ ActiveRecord::Schema.define(version: 20161001150321) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthday"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
