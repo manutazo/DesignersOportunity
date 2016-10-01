@@ -16,6 +16,12 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
+gem 'cocaine'
+gem 'acts_as_votable'
+gem 'commontator', '~> 4.11.1'
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'materialize-sass'
+gem 'font-awesome-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -33,12 +39,19 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'autotest-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'rubocop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
