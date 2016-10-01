@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ *= require commontator/application
+ */
+
+ @import "materialize/components/color";
+ $primary-color: color("blue", "lighten-2") !default;
+ @import 'materialize';
+ @import "materialize/extras/nouislider";
+ @import "font-awesome";
+
+ @media only screen and (max-width: 1000px) {
+   .row .col.m6 {
+      width: 100%;
+    }
+ }
+
+ body{
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+   background-color: #ebebeb;
+   }
+
+   main {
+       flex: 1 0 auto;
+   }
+
+   footer.page-footer {
+     margin-top: 0px;
+     padding-top: 0px;
+   }
+
+ .brand{
+    position:relative;
+ }
+
+ video{
+   height: auto;
+   vertical-align: middle;
+   width: 100%;
+ }
+ .text{
+   background: rgba(0,0,0,0);
+   position: absolute;
+   top: 0; right: 0; bottom: 0; left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+  .text h2{
+  color: white;
+  text-align: center;
+  }
+ .button-mod{
+ border-radius: 6px;
+ color: white;
+ border: 1px white solid;
+ background-color: transparent;
+ letter-spacing: .7px;
+ }
+ .button-logout{
+ border-radius: 6px;
+ border: 1px white solid;
+ background-color: red;
+ letter-spacing: .7px;
+   }
+ .button{
+   position: absolute;
+   top: 40%; right: 0; bottom: 0; left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }

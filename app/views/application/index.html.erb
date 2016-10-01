@@ -1,0 +1,28 @@
+<div class="brand">
+   <%= video_tag("video.mp4", autoplay: true, autobuffer: true ,controls: false, poster: "loader.gif")%>
+   <div class="text">
+      <h2>You want to make your designs popular?</h2>
+   </div>
+   <div class="button">
+     <%= button_to "Start!", new_user_registration_path, :class => "button-mod waves-effect waves-light btn", :method => :get %>
+   </div>
+</div>
+<div class="row">
+
+ <div class="colum-12-branding col s12 ">
+   <h5>Tu diseño subido en menos de 1 minuto y 3 pasos.</h5>
+ </div>
+
+ <div class="colum-4-content-1-brading col s4 z-depth-3">
+ <h6>1º. Registrate en la web.</h6>
+ </div>
+
+ <div class="colum-4-content-2-brading  col s4 z-depth-3">
+ <h6>2º. Elije el titulio, descripcioón y sube tu diseño.</h6>
+ </div>
+
+ <div class="colum-4-content-3-brading  col s4 z-depth-3">
+<h6>3º. Espera las visitas, votos y comentarios.</h6>
+ </div>
+
+</div>
