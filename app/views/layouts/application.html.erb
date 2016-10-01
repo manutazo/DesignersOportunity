@@ -9,6 +9,13 @@
   </head>
 
   <body>
+
+    <%= render "layouts/header" %>
+        <main>
+    <%= render partial: "layouts/flash" %>
     <%= yield %>
+        </main>
+    <%= render "layouts/footer" %>
+
   </body>
 </html>

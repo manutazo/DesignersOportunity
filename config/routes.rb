@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/' => 'application#index'
+
+  mount Commontator::Engine => '/commontator'
+
+  resources :designs , path: 'design', except: [:index]
+  put	'/design/:id/like' =>	'designs#upvote', as: 'like'
+  put	'/design/:id/dislike' => 'designs#downvote', as: 'dislike'
 end
