@@ -15,5 +15,4 @@ class Design < ApplicationRecord
     validates_with AttachmentSizeValidator,
       attributes: :image, less_than: 1.megabytes
     acts_as_commontable
-  end
 end

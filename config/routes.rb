@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  g
   devise_for :users
 
   get '/' => 'application#index'
