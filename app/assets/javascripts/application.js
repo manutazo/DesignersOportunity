@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require materialize-sprockets
+//= require materialize/extras/nouislider
 //= require_tree .
+
+$(document).ready(function() {
+    $('select').material_select();
+  });
+
+$(document).ready(function() {
+  $('input#input_text, textarea#textarea1').characterCounter();
+});

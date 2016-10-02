@@ -8,11 +8,7 @@ class Design < ApplicationRecord
     validates :image, presence: true
     validates :gender, presence: true
     validates :season, presence: true
-    has_attached_file :image, styles:
-      { medium: "450x450>", thumb: "490x275>" }
-    validates_attachment_file_name :image,
-      matches: [/png\z/, /jpg\z/, /jpe?g\z/]
-    validates_with AttachmentSizeValidator,
-      attributes: :image, less_than: 1.megabytes
+    has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#" }
+    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
     acts_as_commontable
 end

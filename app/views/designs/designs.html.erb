@@ -1,0 +1,46 @@
+<div class="row">
+  <% @designs.each do |design| %>
+    <div class="col s12 m4">
+      <div class="circle-designs-card card ">
+        <div class="card-image image-medium">
+          <%= link_to design_path(design, design.user_id) do %>
+             <%=image_tag design.image.url(:medium) %>
+          <%end%>
+        </div>
+        <div class="card-content">
+          <div class="col s4 top">
+            <% ellipsis = design.title.bytesize  %>
+            <% if ellipsis == 9 %>
+              <%= design.title %>
+            <% elsif ellipsis < 9 %>
+              <%= design.title %>
+            <%else%>
+              <%= design.title.split("").values_at(0..8).join.ljust(12, "...")%>
+            <%end%>
+          </div>
+          <div class="col s4 top">
+            <%= link_to like_path(design), method: :put do %>
+               <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+             <%end%>
+            <%= design.get_upvotes.size %>|
+             <%= link_to dislike_path(design), method: :put do %>
+               <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+             <%= design.get_downvotes.size %>
+          <%end%>
+         </div>
+         <div class="col s4 top">
+          <% @user = User.where(id: design.user_id).each do |user| %>
+          <%= link_to designer_path(user) do%>
+            <%=user.name%>
+            <%end%>
+         <%end%>
+
+        </div>
+      </div>
+      </div>
+    </div>
+
+       <%end%>
+
+</div>
+  <%= paginate @designs %>
