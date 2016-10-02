@@ -1,0 +1,50 @@
+<% @user.each do |user| %>
+<div class="row">
+  <div class="brand">
+    <div class="card-user">
+      <%=image_tag("background.png", width: "100%")%>
+        <div class="text-user">
+            <div class="card-image">
+              <%= link_to edit_user_registration_path do %>
+              <% if user.avatar.present? %>
+               <img class="circle responsive-img"<%= image_tag(user.avatar.url(:medium)) %>
+              <% else %>
+              <img class="circle responsive-img"<%= image_tag("add_user.png", size: "300")%>
+              <% end %>
+              <% end %>
+              <div class="center">
+                <h2><%=user.name%></h2>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="logout col s12 ">
+      <div class="right-align">
+        <a class="button-logout waves-effect waves-light btn waves-red"<%= link_to(destroy_user_session_path, :method => :delete) do%>
+          log out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+          <% end %>
+      </div>
+    </div>
+       <div class="col s12 m6">
+         <div class="card darken-1">
+           <div class="card-content">
+             <span class="card-title">User Information</span>
+            <p><h6>name: <%=user.name%></h6><p>
+            <h6>email: <%=user.email%></h6></p></p>
+           </div>
+           <div class="card-action">
+               <a class="waves-effect waves-light btn"<%= link_to "edit information", edit_user_registration_path %></a>
+           </div>
+         </div>
+       </div>
+       <div class="col s12 m6">
+         <div class="card darken-1">
+           <div class="card-content">
+             <a class="waves-effect waves-light btn"<%= link_to 'view my desigs', designer_path(user.id) %></a>
+           </div>
+         </div>
+
+        </div>
+<%end%>
+    </div>

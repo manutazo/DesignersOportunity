@@ -21,6 +21,17 @@
       <label class="col-sm-2 control-label active" for="user_name">birthday</label>
      <div class="col-sm-6">
 <%= date_field(:user, :birthday, class: 'datepicker') %>
+<script type="text/javascript">
+var d = new Date();
+d.setFullYear( d.getFullYear() - 100 );
+$('.datepicker').pickadate(
+{
+   selectMonths: true,
+   selectYears: true,
+   min: d,
+   max: new Date()
+});
+</script>
 </div>
 </div>
 <div class="input-field col s4">

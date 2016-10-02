@@ -12,11 +12,11 @@ class User < ApplicationRecord
   validates_uniqueness_of :name,
       :case_sensitive => false, :allow_blank => true, :if => :name_changed?, length: {maximum: 11, minimum: 3}
 
-  validates :birthday, numericality: true, on: :create
+  validates :birthday, presence: true, on: :create
 
   validates :first_name, on: :create, length: {maximum: 11, minimum: 3}
   validates :last_name, on: :create, length: {maximum: 11, minimum: 3}
-  validates :description, on: :create, length: {maximum: 60, minimum: 3}
+  validates :description, on: :create, length: {maximum: 60}
   has_many :designs, dependent: :destroy
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
