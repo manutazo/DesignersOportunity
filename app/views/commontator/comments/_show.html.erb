@@ -2,13 +2,14 @@
    # comment
    # user
 %>
-
 <% creator = comment.creator
    name = Commontator.commontator_name(creator) || ''
    link = Commontator.commontator_link(creator, main_app) || ''
    avatar = Commontator.commontator_avatar(creator, self) || ''
 %>
-
+<div class="col s12 m6">
+  <div class="card darken-1 z-depth-2">
+    <div class="card-content">
 <div id="comment_<%= comment.id.to_s %>_div" class="comment">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
@@ -20,9 +21,10 @@
                               :user => user } %>
     </span>
   </div>
+
   <div id="comment_<%= comment.id.to_s %>_middle_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_avatar_span" class="comment_avatar">
-      <%= avatar %>
+    <%= image_tag(user.avatar.url, size: '50') %>
     </span>
     <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
       <%= render :partial => 'commontator/comments/votes',
@@ -45,4 +47,7 @@
     <% end %>
     </span>
   </div>
+</div>
+</div>
+</div>
 </div>
