@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
+    if current_user == nil
+      render "index"
+      else
+          redirect_to account_path
+      end
   end
 
 
