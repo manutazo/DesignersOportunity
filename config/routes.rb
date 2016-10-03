@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  # mount ActionCable.server => '/cable'
+
   devise_for :users
 
   get '/' => 'application#index'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   get 'designer/:id' => 'designs#designer', as: 'designer'
   post 'designs' => 'designs#create'
 
-  get 'designs/gender' => 'designs#filter_gender'
+  get 'designs/filter' => 'designs#filter_gender'
   get 'designs/:gender' => 'designs#filter_season'
 
     get 'designs/:gender/:season' => 'designs#filter', as: 'filter'

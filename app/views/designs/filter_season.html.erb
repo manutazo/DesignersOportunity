@@ -1,0 +1,63 @@
+
+<div class="row center">
+  <div class="filter-responsive col s12 m6">
+        <%= link_to filter_path(@gender, :season => "all") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>all season</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+  <div class="filter-responsive col s12 m6">
+        <%= link_to filter_path(@gender, :season => "spring") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>spring</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+  <div class="filter-responsive col s12 m6">
+      <%= link_to filter_path(@gender, :season => "summer") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>summer</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+  <div class="filter-responsive col s12 m6">
+      <%= link_to  filter_path(@gender, :season => "auturmn") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>auturmn</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+  <div class="filter-responsive col s12 m6">
+      <%= link_to filter_path(@gender, :season => "winter") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>winter</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+  <div class="filter-responsive col s12 m6">
+      <%= link_to filter_path(@gender, :season => "no season") do %>
+  <div class="filter">
+    <%=image_tag 'background', class: "z-depth-2"%>
+       <div class="text center">
+          <h2>no season</h2>
+       </div>
+       <%end%>
+  </div>
+  </div>
+</div>
