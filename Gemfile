@@ -21,8 +21,9 @@ gem 'acts_as_votable'
 gem 'commontator', '~> 4.11.1'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'materialize-sass'
-gem 'kaminari'
 gem 'font-awesome-rails'
+gem 'dotenv-rails'
+gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
