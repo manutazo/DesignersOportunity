@@ -1,0 +1,21 @@
+<div class="col s6 m5">
+<div class="card small col s6">
+  <% @designs.each do |design| %>
+    <div class=" card-image  waves-effect waves-block waves-light">
+      <div class="activator">
+        <%= link_to design_path(design, design.user_id) do %>
+        <%=image_tag design.image.url %>
+        <%end%>
+      </div>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">...</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    <%end%>
+  </div>
+</div>
