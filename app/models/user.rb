@@ -18,7 +18,19 @@ class User < ApplicationRecord
   validates :last_name, on: :create, length: {maximum: 11, minimum: 3}
   validates :description, on: :create, length: {maximum: 60}
   has_many :designs, dependent: :destroy
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }
+  has_attached_file :avatar,  styles: {
+      medium: '300x300>',
+      thumb: {
+        geometry: '100x100>',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize'
+          }
+        }
+      }
+    },
+    processors: [:thumbnail, :compression]
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   acts_as_commontator
 

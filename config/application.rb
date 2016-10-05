@@ -22,6 +22,8 @@ module DesignersOportunity
        :password             => "Hagamoslo.01",
        :authentication       => "plain"
    }
+
+   config.paperclip_defaults = { :compression => { :png => false, :jpeg => '-optimize' } }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

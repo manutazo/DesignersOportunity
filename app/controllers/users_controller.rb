@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, only: [:show]
+    before_action :authenticate_user!
 
   def show
     @designs = Design.where(user_id: current_user.id)

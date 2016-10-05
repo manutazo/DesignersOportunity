@@ -8,7 +8,19 @@ class Design < ApplicationRecord
     validates :image, presence: true
     validates :gender, presence: true
     validates :season, presence: true
-    has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#" }
+    has_attached_file :image,  styles: {
+        medium: '300x300>',
+        thumb: {
+          geometry: '100x100>',
+          processor_options: {
+            compression: {
+              png: false,
+              jpeg: '-copy none -optimize'
+            }
+          }
+        }
+      },
+      processors: [:thumbnail, :compression]
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
     acts_as_commontable
 end
