@@ -1,4 +1,5 @@
 class Design < ApplicationRecord
+    is_impressionable
     acts_as_votable
     belongs_to :user
     validates :title, presence: true,

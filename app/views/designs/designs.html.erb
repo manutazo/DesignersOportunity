@@ -8,7 +8,7 @@
           <%end%>
         </div>
         <div class="card-content">
-          <div class="col s4 top">
+          <div class="col s12 m4 top">
             <% ellipsis = design.title.bytesize  %>
             <% if ellipsis == 9 %>
               <%= design.title %>
@@ -18,7 +18,7 @@
               <%= design.title.split("").values_at(0..8).join.ljust(12, "...")%>
             <%end%>
           </div>
-          <div class="col s4 top">
+          <div class="col s12 m4 top">
             <%= link_to like_path(design), method: :put do %>
                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
              <%end%>
@@ -28,13 +28,15 @@
              <%= design.get_downvotes.size %>
           <%end%>
          </div>
-         <div class="col s4 top">
+         <div class="col s12 m3 top">
           <% @user = User.where(id: design.user_id).each do |user| %>
           <%= link_to designer_path(user) do%>
             <%=user.name%>
             <%end%>
          <%end%>
-
+        </div>
+        <div class="col s12 m1">
+          <%= "#{design.impressionist_count}" %>
         </div>
       </div>
       </div>

@@ -36,9 +36,7 @@ body{
   background-color: #ebebeb;
   }
 
-  main {
-      flex: 1 0 auto;
-  }
+
 
   footer.page-footer {
     margin-top: 0px;
@@ -54,7 +52,42 @@ video{
   vertical-align: middle;
   width: 100%;
 }
-.text{
+
+
+ input{
+ display: block;
+ height: 34px;
+ margin-left: 50%;
+ line-height: 1.42857143;
+ color: #555;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+ transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+ width: 60%;
+   }
+
+.btn-subscription{
+  background: #0a587d;
+  margin-left: 10% !important;
+  border-radius: 25px;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+}
+
+.sub-in{
+background-image: image-url("subscription.png");
+color: #0a587d;
+height: 140px;
+}
+
+.text-sub{
+  padding-bottom: 2%;
+  padding-top: 1%;
+}
+
+.text-video{
   background: rgba(0,0,0,0);
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -62,10 +95,11 @@ video{
   align-items: center;
   justify-content: center;
  }
- .text h2{
+ .text-video h2{
  color: white;
  text-align: center;
  }
+
 .button-mod{
 border-radius: 6px;
 color: white;
@@ -86,20 +120,22 @@ letter-spacing: .7px;
   align-items: center;
   justify-content: center;
 }
+nav .index{
+  background-color: #0c070e;
+}
+
 .colum-12-branding{
   text-align: center;
-  background-color: rgba(124, 122, 145, 0.9);
+  height: auto;
+  background-color: #64b5f6;
+  color: #ffffff
 }
-.colum-4-content-1-brading {
-  text-align: center;
-  background-color: rgba(92, 247, 255, 0.7);
+.content-brading {
+  background-color: #64b5f6;
+  color: #ffffff;
 }
-.colum-4-content-2-brading {
-  background-color: rgba(92, 187, 255, 0.6);
-}
-.colum-4-content-3-brading {
-  background-color: rgba(92, 149, 255, 0.6);
-}
+
+
 .card-user{
   height: auto;
   vertical-align: middle;
@@ -130,4 +166,8 @@ letter-spacing: .7px;
 }
 .circle-designs-card{
   border-radius: 20px;
+}
+
+.navbar-trasparent {
+   background: trasparent;
 }

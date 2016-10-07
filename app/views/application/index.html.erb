@@ -1,28 +1,58 @@
 <div class="brand">
-   <%= video_tag("video.mp4", autoplay: true, autobuffer: true ,controls: false, poster: "loader.gif")%>
-   <div class="text">
-      <h2>You want to make your designs popular?</h2>
-   </div>
-   <div class="button">
-     <%= button_to "Start!", new_user_registration_path, :class => "button-mod waves-effect waves-light btn", :method => :get %>
-   </div>
-</div>
+   <%= video_tag("video.mp4", autoplay: true, autobuffer: true ,controls: false, poster: "video.png")%>
+     <div class="text-video">
+        <h2>You want to make your designs popular?</h2>
+     </div>
+     <div class="button">
+       <%= button_to "Start!", new_user_registration_path, :class => "button-mod waves-effect waves-light btn", method: :get %>
+     </div>
+  </div>
+
+
 <div class="row">
 
- <div class="colum-12-branding col s12 ">
-   <h5>Tu diseño subido en menos de 1 minuto y 3 pasos.</h5>
- </div>
+  <div class="colum-12-branding col s12 ">
+     <h3>Your design published in less than 1 minute</h3>
+  </div>
 
- <div class="colum-4-content-1-brading col s4 z-depth-3">
- <h6>1º. Registrate en la web.</h6>
- </div>
+   <div class="content-brading col s12 m4 center">
+     <i class="material-icons medium">account_circle</i>
+     <h5><%=link_to "sign up", new_user_registration_path , method: :get%> or
+     <%=link_to "log in", new_user_session_path, method: :get %> on this website </h5>
+   </div>
 
- <div class="colum-4-content-2-brading  col s4 z-depth-3">
- <h6>2º. Elije el titulio, descripcioón y sube tu diseño.</h6>
- </div>
+   <div class="content-brading col s12 m4 center">
+     <i class="material-icons medium">add_a_photo</i>
+     <h5>Choose the title, description and post your design</h5>
+   </div>
 
- <div class="colum-4-content-3-brading  col s4 z-depth-3">
-<h6>3º. Espera las visitas, votos y comentarios.</h6>
- </div>
+   <div class="content-brading col s4 center">
+       <i class="material-icons medium">thumbs_up_down</i>
+        <i class="material-icons medium">question_answer</i>
+         <i class="material-icons medium">visibility</i>
+         </i>
+       </i>
+      </i>
+    <h5>Wait visits, votes and comments</h5>
+    </div>
+
+  <form class="col s12 sub-in">
+    <div class="row">
+      <div class="text-sub center">
+        <h5>
+          subscribe to our newsletter to find out all the latest designs top rated
+           <i class="material-icons md-36 tooltipped" data-position="top" data-delay="50" data-tooltip="receive news on the web, most voted designs a week and news about the world of design. NOT SEND SPAM">info
+           </i>
+         </h5>
+      </div>
+      <div class="col s12 m7">
+        <input type="" placeholder="email@example.com">
+      </div>
+      <div class="col s12 m5">
+        <a class="btn btn-subscription">subscribe</a>
+      </div>
+    </div>
+  </form>
+
 
 </div>
