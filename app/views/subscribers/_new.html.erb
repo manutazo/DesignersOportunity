@@ -2,10 +2,12 @@
   <div class="row">
     <div class="text-sub center">
       <% if flash[:error] %>
-        <p class="alert danger text-center">
-          <%= flash[:error] %>
-        </p>
+      <div id="toast-container">
+          <script type="text/javascript">
+           Materialize.toast('<h3><%= flash[:error] %></h3>', 10000, 'red rounded' )
+          </script>
         <%end%>
+      </div>
       <h5>
         subscribe to our newsletter to find out all the latest designs top rated
          <i class="material-icons md-36 tooltipped" data-position="top" data-delay="50" data-tooltip="receive news on the web, most voted designs a week and news about the world of design. NOT SEND SPAM">info

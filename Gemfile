@@ -26,6 +26,7 @@ gem 'font-awesome-rails'
 gem 'dotenv-rails'
 gem 'kaminari'
 gem 'paperclip-compression'
+gem 'delayed_job_active_record'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

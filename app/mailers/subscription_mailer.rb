@@ -1,6 +1,6 @@
 class SubscriptionMailer < ApplicationMailer
-  def send_email(email,post)
-    @post = post
-    mail(to: email, subject: @post.title)
+  def welcome_subcripcion(subscriber)
+     @subscriber = subscriber
+    mail(to: @subscriber.email , subject: 'Welcome to My Awesome Site')
   end
 end

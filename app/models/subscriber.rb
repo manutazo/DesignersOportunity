@@ -1,11 +1,4 @@
 class Subscriber < ApplicationRecord
-  
- validates :email, presence: true, uniqueness: true, on: :create
+ validates :email, presence: true, uniqueness: true
 
-
- def send_email_to_subscribers
-   Subscriber.all.each do |subscriber|
-     SubscriptionMailer.send_email(subscriber.email,self)
-   end
-  end
 end

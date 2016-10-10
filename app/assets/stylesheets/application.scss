@@ -29,6 +29,12 @@
    }
 }
 
+#toast-container {
+    position: fixed !important;
+    bottom: 0px !important;
+    left: 0px !important;
+}
+
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
     font-size: large;
     font-weight: initial;
