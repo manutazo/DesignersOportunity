@@ -1,0 +1,17 @@
+<div class="fade-in-down flash slow js-flash">
+  <% if flash[:notice] %>
+    <p class="alert info text-center">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+  <% if flash[:success] %>
+    <p class="alert success text-center">
+      <%= flash[:success] %>
+    </p>
+  <% end %>
+  <% if flash[:error] %>
+    <p class="alert danger text-center">
+      <%= flash[:error] %>
+    </p>
+  <% end %>
+</div>

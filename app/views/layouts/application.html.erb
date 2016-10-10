@@ -13,7 +13,10 @@
 
     <%=render partial: "layouts/header"%>
         <main>
+    <% if current_user == nil %>
+    <% else %>
     <%= render partial: "layouts/flash" %>
+    <%end%>
     <%= yield %>
         </main>
     <%= render "layouts/footer" %>

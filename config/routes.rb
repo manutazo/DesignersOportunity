@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :subscribers
   # mount ActionCable.server => '/cable'
 
   devise_for :users
 
-  get '/' => 'application#index'
+  get '/' => 'application#index', as: 'index'
   get '/account' => 'users#show', as: 'account'
   get 'designs' => 'designs#designs', as: 'designs'
   get 'designer/:id' => 'designs#designer', as: 'designer'

@@ -2,7 +2,6 @@ class DesignsController < ApplicationController
   before_action :find_params, only: [:show, :edit]
   before_action :authenticate_user!, except: [:index, :designs]
   before_action :authenticate_propetary, only: [:edit, :update, :Destroy]
-  impressionist actions: [:show]
 
   def show
     @design = find_params
