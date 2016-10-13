@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :subscribers
   # mount ActionCable.server => '/cable'
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
 
   get '/' => 'application#index', as: 'index'
   get '/account' => 'users#show', as: 'account'

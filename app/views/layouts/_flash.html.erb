@@ -1,17 +1,29 @@
-<div class="fade-in-down flash slow js-flash">
-  <% if flash[:notice] %>
-    <p class="alert info text-center">
-      <%=  %>
-    </p>
-  <% end %>
-  <% if flash[:success] %>
-    <p class="alert success text-center">
-      <%= flash[:success] %>
-    </p>
-  <% end %>
-  <% if flash[:error] %>
-    <p class="alert danger text-center">
-      <%= flash[:error] %>
-    </p>
-  <% end %>
-</div>
+<% if flash[:error] %>
+
+<div id="toast-container">
+
+    <script type="text/javascript">
+     Materialize.toast('<h3><%= flash[:error] %></h3>', 10000, 'red rounded' )
+    </script>
+
+<%end%>
+
+<% if flash[:success] %>
+
+<div id="toast-container">
+
+    <script type="text/javascript">
+     Materialize.toast('<h3><%= flash[:success] %></h3>', 10000, 'blue rounded' )
+    </script>
+
+<%end%>
+
+<% if flash[:notice] %>
+
+<div id="toast-container">
+
+    <script type="text/javascript">
+     Materialize.toast('<h3><%= flash[:notice] %></h3>', 10000, 'yellow rounded' )
+    </script>
+
+<%end%>
