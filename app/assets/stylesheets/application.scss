@@ -29,11 +29,13 @@
    }
 }
 
+
 #toast-container {
-    position: fixed !important;
-    bottom: 0px !important;
-    left: 0px !important;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
 }
+
 
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
     font-size: large;
@@ -48,6 +50,10 @@ body{
   background-color: #ebebeb;
   }
 
+.logo{
+  height: 120px;
+margin-bottom: 5%;
+}
 
 
   footer.page-footer {
@@ -76,7 +82,6 @@ video{
   justify-content: center;
  }
  .text-video h2{
- color: white;
  text-align: center;
  }
 
@@ -115,20 +120,6 @@ nav .index{
   color: #ffffff;
 }
 
-
-.card-user{
-  height: auto;
-  vertical-align: middle;
-  width: 100%;
-}
-.text-user{
-  background: rgba(0,0,0,0);
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .filter{
   position: relative;
   margin-top: 2%;

@@ -11,15 +11,11 @@
 
   <body>
 
-    <%=render partial: "layouts/header"%>
+    <%= render 'layouts/header' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
         <main>
-    <% if current_user == nil %>
-    <% else %>
-    <%= render partial: "layouts/flash" %>
-    <%end%>
-    <%= yield %>
-        </main>
-    <%= render "layouts/footer" %>
+         <%= yield %>
+         </main>
+    <%= render 'layouts/footer' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
 
   </body>
 </html>
