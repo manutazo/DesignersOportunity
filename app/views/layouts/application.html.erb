@@ -10,12 +10,14 @@
   </head>
 
   <body>
+  <main>
 
+    <%= javascript_include_tag "materialize" %>
     <%= render 'layouts/header' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
-        <main>
+
          <%= yield %>
          </main>
     <%= render 'layouts/footer' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
 
   </body>
-</html>
+  </html>

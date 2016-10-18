@@ -1,43 +1,43 @@
+
 <main>
 
 
 <header>
 <nav>
-  <nav>
     <%if current_user == nil %>
     <div class="nav-wrapper index">
         <%else %>
     <div class="nav-wrapper">
       <%end%>
 
-      <a href="/"><%= image_tag('logo', style: "width: 15%; height: 100%;")%></a>
-      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a id="logo-container" href="#" class="" style="top: -0.3rem;">
+        <%= image_tag("logo", style: "height: 28px; vertical-align: middle; margin-top: -7px; margin-left: 4px;" )%>
+        <span class="grey-text lighten" style="font-size: 1.3rem; margin-left: 10px; font-weight: 700; font-family: Lato;">
+          <b class="blue-text">Designers</b> <b class="white-text">Oportunity</b></span></a>
 
       <ul class="right hide-on-med-and-down">
+        <%if current_user == nil%>
+          <a class=" waves-effect waves-light btn " <%=link_to "login",  (new_user_session_path) %></a>
+        <a class=" waves-effect waves-light btn " <%= link_to "sign up", new_user_registration_path %></a>
+        <%else %>
+        <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
+        <a class=" waves-effect waves-light btn"<%=link_to "account", account_path %></a>
+        <a class=" waves-effect waves-light btn"  <%=link_to "new design", new_design_path, method: 'get'%></a>
+          <% end %>
+      </ul>
+
+      <ul class="side-nav" id="mobile-demo">
         <%if current_user == nil%>
           <a class=" waves-effect waves-light btn" <%=link_to "login",  (new_user_session_path) %></a>
         <a class=" waves-effect waves-light btn" <%= link_to "sign up", new_user_registration_path %></a>
         <%else %>
         <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
         <a class=" waves-effect waves-light btn"<%=link_to "account", account_path %></a>
-        <a class=" waves-effect waves-light btn"  <%=link_to "new design", new_design_path %></a>
-        <a class="button-logout waves-effect waves-light btn waves-red"<%= link_to(destroy_user_session_path, :method => :delete) do%>
-          log out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        <a class=" waves-effect waves-light btn"  <%=link_to "new design", new_design_path, method: 'get'%></a>
           <% end %>
-
-        <%end%>
       </ul>
+        <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
-      <ul class="side-nav" id="mobile-demo">
-        <%if current_user == nil%>
-        <li><a href="users/sign_in">login</a></li>
-        <li><a href="users/sign_up">sign up</a></li>
-        <%else %>
-        <li><a href="account">account</a></li>
-        <li><a href="designs">deisgns</a></li>
-        <li><a class="waves-effect waves-light btn"><a href="designs/new">new design</a></a></li>
-        <%end%>
-      </ul>
     </div>
   </nav>
 </nav>
