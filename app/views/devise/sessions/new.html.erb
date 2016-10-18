@@ -2,7 +2,17 @@
 
   <div class="col s12 m7 white" style="min-height:100%; height: 100%;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+    <% if resource.errors.any? %>
+        <div class="error">
+            <ul>
+                <% resource.errors.each do |attr,msg| %>
+                <script type="text/javascript">
+                 Materialize.toast('<h5><%=attr%> <%= msg %></h5>', 10000, 'red rounded' )
+                </script>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
       <div class="row">
         <div class="col s12 logo center">
           <a href="/"><%= image_tag('logo')%></a>

@@ -24,6 +24,6 @@
               :confirm => (!is_deleted ? t('commontator.comment.actions.confirm_delete') : nil),
               :method => :put,
               :id => "comment_#{comment.id.to_s}_#{del_string}_link",
-              :class => "button-logout waves-effect waves-light btn waves-red comment_#{del_string}_link",
+              :class => "button-logout waves-effect waves-light btn red comment_#{del_string}_link",
               :remote => true %>
 <% end %>
