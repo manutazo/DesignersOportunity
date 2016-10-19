@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
 
   def index
     @subscriber = Subscriber.new
-    if current_user == nil
+    if current_user.nil?
       render "index"
       else
+          flash[:notice] = "You can not access the start if registered"
           redirect_to account_path
+
       end
   end
 

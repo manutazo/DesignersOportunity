@@ -1,0 +1,17 @@
+<%if current_user.nil?%>
+  <div class="nav-wrapper index">
+    <%=link_to index_path, id: "logo-container" do%>
+      <%= image_tag("logo", style: "height: 28px; vertical-align: middle; margin-top: -7px; margin-left: 4px;" )%>
+        <span class="lighten" style="font-size: 1.3rem; margin-left: -10px; font-weight: 700; font-family: Lato;">
+          <b class="blue-text">Designers</b> <b class="white-text">Oportunity</b>
+        </span>
+    <%end%>
+<%else%>
+  <div class="nav-wrapper">
+    <%=link_to account_path, id: "logo-container" do%>
+      <%= image_tag("logo", style: "height: 28px; vertical-align: middle; margin-top: -7px; margin-left: 4px;" )%>
+        <span class="lighten" style="font-size: 1.3rem; margin-left: -10px; font-weight: 700; font-family: Lato;">
+          <b class="blue-text">Designers</b> <b class="white-text">Oportunity</b>
+        </span>
+    <%end%>
+<%end%>

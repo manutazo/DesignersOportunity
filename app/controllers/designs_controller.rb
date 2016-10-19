@@ -38,24 +38,19 @@ class DesignsController < ApplicationController
 
   def create
     @design = current_user.designs.new(design_params)
-    respond_to do |format|
-    if @design.save
-      format.html { redirect_to @design, notice: "great #{current_user.name}! Your design was created successfully." }
-      format.json { render action: 'show', status: :created, location: @design }
-    else
-      format.html { render action: 'new' }
-      format.json { render json: @design.errors, status: :unprocessable_entity }
+      respond_to do |format|
+      if @design.save
+        format.html { redirect_to @design, notice: "great #{current_user.name}! Your design was created successfully." }
+        format.json { render action: 'show', status: :created, location: @design }
+      else
+        format.html { redirect_to new_design_path, :flash => { :error => @design.errors.full_messages.join(', ') }}
+        format.json { render json: @design.errors, status: :unprocessable_entity }
+      end
     end
-  end
   end
 
   def designs
   @designs = Design.page(params[:page]).per(9)
-  respond_to do |format|
-      format.html
-      format.js
-
-  end
   end
 
 
