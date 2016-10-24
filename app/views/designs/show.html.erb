@@ -1,60 +1,75 @@
 <div class="row">
-  <div class="col s12 m6">
-    <div class="card darken-1">
-      <div class="card-content">
-       <img class="responsive-img z-depth-4"<%= image_tag @design.image.url %>
-     </div>
-   </div>
- </div>
-  <div class="col s12 m6">
-    <div class="card darken-1 z-depth-2">
-      <div class="card-content">
-        <span class="card-title">Design Information</span>
-        <p><h6>name by designer: <%= @design.title %></h6><p>
-        <% if @design.season == "genderless" %>
-          </h4>this design is the gender <%= @design.gender%> and has no season</h4><p>
-          <% else %>
-          </h4>this design is the gender <%= @design.gender%> and their season <%= @design.season %></h4><p>
+    <div class="col s12 m6">
+        <div class="card darken-1">
+            <div class="card-content">
+                <img Design <h class="responsive-img z-depth-4" <%= image_tag @design.image.url %> </div> </div> </div> <div class="col s12 m6"> <div class="card darken-1 z-depth-2"> <div class="card-content"> <span class="card-title"> Information</span> <p>>name by designer:
+                <%= @design.title %></h6>
+            <p>
+                <% if @design.season == "genderless" %>
+            </h4>this design is the gender
+            <%= @design.gender%>
+            and has no season</h4>
+        <p>
+        <% else %>
+        </h4>this design is the gender
+        <%= @design.gender%>
+        and their season
+        <%= @design.season %></h4>
+    <p>
         <% end %>
-        <p><h6>desciption: <%= @design.description %></h6><p>
-        <p><h6>creation date: <%= @design.created_at.strftime("%d %b %y") %></h6><p>
+        <p>
+            <h6>desciption:
+                <%= @design.description %></h6>
+            <p>
+                <p>
+                    <h6>creation date:
+                        <%= @design.created_at.strftime("%d %b %y") %></h6>
+                    <p>
 
-<% @propetary.each do |propetary| %>
-      </div>
-      <div class="card-action">
-        <h6> <a class="waves-effect waves-light btn"<%= link_to 'more designs by this designer', designer_path(propetary.id)%></h6></a></p></p>
-      </div>
+                        <% @propetary.each do |propetary| %>
+                    </div>
+                    <div class="card-action">
+                        <h6><a class="waves-effect waves-light btn" <%= link_to 'more designs by this designer', designer_path(propetary.id)%></h6>
+                    </a>
+                </p>
+            </p>
+        </div>
     </div>
-  </div>
-  <div class="col s12 m6">
-    <div class="card darken-1 z-depth-2">
-      <div class="card-content">
-        <span class="card-title">Designer Information</span>
-        <p><h6>user since <%= propetary.created_at.strftime("%d %b %y") %></h6><p>
-       <p><h6>name by designer: <%= propetary.name %></h6><p>
-      </div>
-      <div class="card-action">
-
-      </div>
-    </div>
-  </div>
 </div>
-<%=  commontator_thread(@design) %>
+<div class="col s12 m6">
+    <div class="card darken-1 z-depth-2">
+        <div class="card-content">
+            <span class="card-title">Designer Information</span>
+            <p>
+                <h6>user since
+                    <%= propetary.created_at.strftime("%d %b %y") %></h6>
+                <p>
+                    <p>
+                        <h6>name by designer:
+                            <%= propetary.name %></h6>
+                        <p></div>
+                        <div class="card-action"></div>
+                    </div>
+                </div>
+            </div>
+            <%=  commontator_thread(@design) %>
 
-
-  <% if current_user.id == propetary.id%>
-  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large blue">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
-    <ul>
-      <a class="btn-floating yellow" <%=link_to edit_design_path(@design), method: "get" do%><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        <% end %>
-      <a class="btn-floating blue darken-1" <%=link_to new_design_path, method: "get" do%><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-        <% end %>
-      <a class="btn-floating red darken-1" <%= link_to design_path(@design), method: :delete, data: { confirm: "It will remove this design, are sure?" } do%><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            <% if current_user.id == propetary.id%>
+            <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large blue">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <ul>
+                    <a <i class="btn-floating yellow" <%=link_to edit_design_path(@design), method: "get" do%> class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <% end %>
+                <a <i class="btn-floating blue darken-1" <%=link_to new_design_path, method: "get" do%> class="fa fa-plus-circle" aria-hidden="true"></i>
+            </a>
+            <% end %>
+            <a <i class="btn-floating red darken-1" <%= link_to design_path(@design), method: :delete, data: { confirm: "It will remove this design, are sure?" } do%> class="fa fa-trash-o" aria-hidden="true"></i>
+        </a>
         <% end %>
     </ul>
-  </div>
-  <% end %>
+</div>
+<% end %>
 <%end%>

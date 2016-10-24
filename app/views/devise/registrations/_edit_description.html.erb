@@ -1,0 +1,18 @@
+<div class="modal-content">
+    <form class="edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post" enctype="multipart/form-data"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="put"><input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <div class="row">
+            <div class="input-field col s12 ">
+                <input placeholder="describe" id="description" type="text" name="user[description]" class="validate">
+                <label class="col-sm-2 control-label active" for="description">description</label>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="col s12">
+                <button type="submit" class="waves-effect waves-light btn-large">edit information
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,41 +1,54 @@
-
 <main>
-  <header>
-    <nav>
+    <header>
+        <nav>
 
-        <%=render partial: "layouts/logo"%>
+            <% if controller.controller_name == "application" && controller.action_name == "index" %>
+            <div class="nav-wrapper index">
+                <%else%>
+                <div class="nav-wrapper">
+                    <%end%>
+                    <%=link_to index_path, id: "logo-container" do%>
+                    <%= image_tag("logo", style: "height: 28px; vertical-align: middle; margin-top: -7px; margin-left: 4px;" )%>
+                    <span class="lighten" style="font-size: 1.3rem; margin-left: -10px; font-weight: 700; font-family: Lato;">
+                        <b class="blue-text">Designers</b>
+                        <b class="white-text">Oportunity</b>
+                    </span>
 
-      <ul class="right hide-on-med-and-down">
-        <%if current_user.nil?%>
+                    <%end%>
 
-          <a class=" waves-effect waves-light btn " <%=link_to "login",  new_user_session_path %></a>
-          <a class=" waves-effect waves-light btn " <%= link_to "sign up", new_user_registration_path %></a>
+                    <ul class="right hide-on-med-and-down">
+                        <%if current_user.nil?%>
 
-        <%else %>
+                    <a class=" waves-effect waves-light btn " <%=link_to "login", new_user_session_path %></a>
+                <a class=" waves-effect waves-light btn " <%= link_to "sign up", new_user_registration_path %></a>
 
-          <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
-          <a class=" waves-effect waves-light btn"<%=link_to "account", account_path %></a>
-          <a class=" waves-effect waves-light btn"  <%=link_to "new design", new_design_path, method: 'get'%></a>
-        <% end %>
-      </ul>
+                <%else %>
 
-      <ul class="side-nav" id="mobile-demo">
-        <%if current_user.nil?%>
+            <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
+        <a class=" waves-effect waves-light btn" <%=link_to "account", account_path %></a>
+    <a class=" waves-effect waves-light btn" <%=link_to "new design", new_design_path, method: 'get'%></a>
+    <% end %>
+</ul>
+</div>
+</div>
+<ul class="side-nav" id="mobile-demo">
+    <%if current_user.nil?%>
 
-          <a class=" waves-effect waves-light btn" <%=link_to "login",  new_user_session_path %></a>
-          <a class=" waves-effect waves-light btn" <%= link_to "sign up", new_user_registration_path %></a>
+    <a class=" waves-effect waves-light btn" <%=link_to "login", new_user_session_path %></a>
+      <a class=" waves-effect waves-light btn" <%= link_to "sign up", new_user_registration_path %></a>
 
-        <%else %>
+    <%else %>
 
-          <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
-          <a class=" waves-effect waves-light btn"<%=link_to "account", account_path %></a>
-          <a class=" waves-effect waves-light btn"  <%=link_to "new design", new_design_path, method: 'get'%></a>
+    <a class=" waves-effect waves-light btn" <%=link_to "designs", designs_path %></a>
+      <a class=" waves-effect waves-light btn" <%=link_to "account", account_path %></a>
+        <a class=" waves-effect waves-light btn" <%=link_to "new design", new_design_path, method: 'get'%></a>
 
-        <% end %>
-      </ul>
+  <% end %>
+</ul>
 
-      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
-      
-    </nav>
-  </header>
+<a href="" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+
+</nav>
+</header>
 </main>

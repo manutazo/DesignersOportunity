@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DesignersOportunity</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>DesignersOportunity</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
 
-  <body>
-  <main>
+    <body>
+        <main>
 
-    <%= javascript_include_tag "materialize" %>
-    <%= render 'layouts/header' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
-      <%= render partial: "layouts/flash" %>
-         <%= yield %>
-         </main>
-    <%= render 'layouts/footer' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
+            <%= javascript_include_tag "materialize" %>
+            <%= render 'layouts/header' unless params[:controller] == "devise/sessions" or "registrations" and params[:action] == "new"  %>
+            <%= render partial: "layouts/flash" %>
+            <%= yield %>
+        </main>
+        <%= render 'layouts/footer' unless params[:controller] == "devise/sessions" or "devise/registrations" and params[:action] == "new" %>
 
-  </body>
-  </html>
+    </body>
+</html>

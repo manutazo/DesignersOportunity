@@ -1,24 +1,19 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
+    protect_from_forgery with: :exception
+    before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def index
-    @subscriber = Subscriber.new
-    if current_user.nil?
-      render "index"
-      else
-          flash[:notice] = "You can not access the start if registered"
-          redirect_to account_path
+    def index
+        @subscriber = Subscriber.new
+    end
 
-      end
-  end
+    def after_sign_in_path_for(resource_or_scope)
+     account_path
+    end
 
+    protected
 
-
-  protected
     def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :first_name, :last_name, :birthday, :confirmation_token])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :first_name, :last_name, :birthday, :description, :avatar])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :first_name, :last_name, :birthday, :confirmation_token])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :first_name, :last_name, :birthday, :description, :avatar])
   end
-
 end

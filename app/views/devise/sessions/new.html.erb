@@ -1,70 +1,68 @@
 <div class="row" style="position: absolute; min-height: 100%; height:100%; width: 100%; top: 0;">
 
-  <div class="col s12 m7 white" style="min-height:100%; height: 100%;">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="row">
-        <div class="col s12 logo center">
-          <a href="/"><%= image_tag('logo')%></a>
+    <div class="col s12 m7 white" style="min-height:100%; height: 100%;">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="row">
+            <div class="col s12 logo center">
+                <a href="/"><%= image_tag('logo')%></a>
+            </div>
         </div>
-      </div>
 
-    <div class="row" style="margin-bottom: 0;">
-      <div class="col s12 edge">
-        <h4 style="font-family: GillSans, Calibri, Trebuchet, sans-serif;">log in</h4>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 edge" style="margin-bottom: 0; max-width: 600px;">
-        <div class="input-field col s12">
-          <%= f.label :email, class: "col-sm-2 control-label active" %>
-          <%= f.email_field :email  %>
+        <div class="row" style="margin-bottom: 0;">
+            <div class="col s12 edge">
+                <h4 style="font-family: GillSans, Calibri, Trebuchet, sans-serif;">log in</h4>
+            </div>
         </div>
-        <div class="input-field col s12">
-          <%= f.label :password, class: "col-sm-2 control-label active" %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+
+        <div class="row">
+            <div class="col s12 edge" style="margin-bottom: 0; max-width: 600px;">
+                <div class="input-field col s12">
+                    <%= f.label :email, class: "col-sm-2 control-label active" %>
+                    <%= f.email_field :email  %>
+                </div>
+                <div class="input-field col s12">
+                    <%= f.label :password, class: "col-sm-2 control-label active" %><br/>
+                    <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <%= f.submit "Login", class: "btn btn-large blue", style: "margin-left:4%;" %></a>
-
+        <%= f.submit "Login", class: "btn btn-large blue", style: "margin-left:4%;" %></a>
 
     <span style="float: right; padding-top: 6px">
         <% if devise_mapping.rememberable? -%>
-          <div class="field">
+        <div class="field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
-          </div>
+        </div>
         <% end -%>
-      </span>
-      <% end %>
+    </span>
+    <% end %>
 
     <div class="row">
-      <div class="col s12">
-        <a class="wave-effect btn right grey"<%= link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %></a>
-      </div>
+        <div class="col s12">
+            <a class="wave-effect btn right grey" <%= link_to t(".forgot_your_password", :default => "Forgot your password?" ), new_password_path(resource_name) %></a>
+        </div>
     </div>
 
-  </div>
+</div>
 
-
-  <div class="col s12 m5 blue" style="min-height: 100%; padding: 5% 5%;">
+<div class="col s12 m5 blue" style="min-height: 100%; padding: 5% 5%;">
     <%= image_tag('person-log.png')%>
 
     <div class="row">
-      <div class="s12" style="padding: 20px 0;">
-        <h5 class="white-text" style="display: inline; vertical-align: middle; font-weight: 600; margin-right: 10px;">need a count?</h5>
-        <a class="waves-effect waves-light btn waves-white"<%= link_to t(".sign_up here", :default => "Sign up here",  class: ""), new_registration_path(resource_name) %></a>
-      </div>
+        <div class="s12" style="padding: 20px 0;">
+            <h5 class="white-text" style="display: inline; vertical-align: middle; font-weight: 600; margin-right: 10px;">need a count?</h5>
+            <a class="waves-effect waves-light btn waves-white" <%= link_to t(".sign_up here", :default => "Sign up here" , class: "" ), new_registration_path(resource_name) %></a>
+        </div>
     </div>
 
     <div class="row">
-      <div class="col s12" style="padding: 20px 0px">
-        <h6 class="white-text">you have not received the link to confirm your account?</h6>
-          <a class="btn blue"<%= link_to t('.didn_t_receive_unlock_instructions', :default => "send again"), new_user_confirmation_path(resource_name) %><br /></a>
-      </div>
+        <div class="col s12" style="padding: 20px 0px">
+            <h6 class="white-text">you have not received the link to confirm your account?</h6>
+            <a class="btn blue" <%= link_to t('.didn_t_receive_unlock_instructions', :default => "send again" ), new_user_confirmation_path(resource_name) %><br/></a>
+        </div>
     </div>
 
-  </div>
+</div>
 </div>

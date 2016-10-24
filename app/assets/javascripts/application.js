@@ -17,30 +17,39 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-   $('.modal-trigger').leanModal();
- });
-       
+
 
 $(document).ready(function() {
-  $('select').material_select();
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+
+    $('#datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+});
+
+$(document).ready(function() {
+    $('select').material_select();
 });
 
 $("#flash_notice").delay(5000).fadeOut("slow");
 $("#flash_alert").delay(5000).fadeOut("slow");
 $("#flash_error").delay(5000).fadeOut("slow");
 
-$(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
-  });
-
-$(document).ready(function(){
-      $('.parallax').parallax();
+$(document).ready(function() {
+    $('.tooltipped').tooltip({
+        delay: 50
     });
+});
 
 $(document).ready(function() {
-  $('input#input_text, textarea#textarea1').characterCounter();
+    $('.parallax').parallax();
+});
+
+$(document).ready(function() {
+    $('input#input_text, textarea#textarea1').characterCounter();
 });
 
 $(".button-collapse").sideNav();

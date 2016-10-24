@@ -2,16 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.card-user{
-  height: auto;
-  vertical-align: middle;
-  width: 100%;
+.card-user {
+    width: 100%;
+    height: auto;
+
+    vertical-align: middle;
 }
-.text-user{
-  background: rgba(0,0,0,0);
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.text-user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+
+    background: rgba(0,0,0,0);
+
+    align-items: center;
+    justify-content: center;
 }

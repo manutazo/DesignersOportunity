@@ -1,21 +1,21 @@
-  <div class="columns">
-  <%= form_for [@design] do |f| %>
+<div class="columns">
+    <%= form_for [@design] do |f| %>
     <div class="icons input-field col s6 m6">
-    <%= select(:design, :season, [['male'], ['female'], ['genderless']]) %>
+        <%= select(:design, :season, [['male'], ['female'], ['genderless']]) %>
     </div>
     <div class="input-field col s6 m6">
-      <%= select(:design, :season, [['spring'], ['summer'], ['autumn'], ['winter'], ['no season'] ]) %>
+        <%= select(:design, :season, [['spring'], ['summer'], ['autumn'], ['winter'], ['no season'] ]) %>
     </div>
-        <div class="column is-12 container form-design">
-      <p><%= f.label :title,class:'label' %></p>
-        <p class="control has-icon has-icon-right">
+    <div class="column is-12 container form-design">
+        <p><%= f.label :title,class:'label' %></p>
+        <p class="control has-icon has-icon-right"></p>
         <%= f.text_field :title, null: false, autofocus: true, class:"input" %>
         <%= f.label :description %>
-      <p class="control has-icon has-icon-right">
+        <p class="control has-icon has-icon-right"></p>
         <%= f.text_area :description, null: false, autofocus: true, class:"input" %>
-      <p class="control has-icon has-icon-right">
-      <%= f.file_field :image, null: false, class:"input"%>
-      <p class="control">
-    <%= f.submit "Update", class: "btn btn-primary" %><br>
-    </div>
-  <%end%>
+        <p class="control has-icon has-icon-right">
+            <%= f.file_field :image, null: false, class:"input"%>
+            <p class="control"></p>
+            <%= f.submit "Update", class: "btn btn-primary" %><br>
+        </div>
+        <%end%>

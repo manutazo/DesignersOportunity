@@ -1,46 +1,47 @@
 <div class="container">
- <%= form_for [@design] do |f| %>
-   <div class="row">
-     <div class="icons input-field col s6 m6">
-     <select  class="input validate" name="design[gender]" >
-       <option value="" disabled selected>Select gender</option>
-       <option value="male">Male</option>
-       <option value="female">Female</option>
-       <option value="genderless">genderless</option>
-     </select>
-   </div>
-   <div class="input-field col s6 m6">
- <select class="icons input validate" name="design[season]">
- <option value="" disabled selected>Select season</option>
- <option value="spring">Spring</option>
- <option value="summer">Summer</option>
- <option value="autumn">Autumn</option>
- <option value="winter">Winter</option>
- <option value="no season">No season</option>
- </select>
- </div>
-      <div class="input-field col s12">
-       <%= f.text_field :title, null: false, autofocus: true, class:"input", length: "45", maxlength: "45" %>
-       <%= f.label :title %>
-     </div>
-     <div class="input-field col s12">
-       <%= f.text_area :description, null: false, autofocus: true, class:"input materialize-textarea", id: "textarea1", length: "120", maxlength: "120" %>
-       <%= f.label :description %>
-     </div>
-      </div>
-      <div class="file-field input-field">
-     <div class="btn">
-       <span>File</span>
-        <%= f.file_field :image, class: "waves-light btn-large"%>
-     </div>
-     <div class="file-path-wrapper">
-       <input class="file-path validate" type="text">
-     </div>
-   </div>
-      <div class="center"%>
-        <button type="submit" class="button-new-design waves-effect waves-light btn-large">create design
-          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-        </button>
+    <%= form_for [@design] do |f| %>
+    <div class="row">
+        <div class="icons input-field col s6 m6">
+            <select class="input validate" name="design[gender]">
+                <option value="" disabled selected>Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="genderless">genderless</option>
+            </select>
         </div>
- <%end%>
- </div>
+        <div class="input-field col s6 m6">
+            <select class="icons input validate" name="design[season]">
+                <option value="" disabled selected>Select season</option>
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="autumn">Autumn</option>
+                <option value="winter">Winter</option>
+                <option value="no season">No season</option>
+            </select>
+        </div>
+        <div class="input-field col s12">
+            <%= f.text_field :title, null: false, autofocus: true, class:"input", length: "45", maxlength: "45" %>
+            <%= f.label :title %>
+        </div>
+        <div class="input-field col s12">
+            <%= f.text_area :description, null: false, autofocus: true, class:"input materialize-textarea", id: "textarea1", length: "120", maxlength: "120" %>
+            <%= f.label :description %>
+        </div>
+    </div>
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>File</span>
+            <%= f.file_field :image, class: "waves-light btn-large"%>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+
+    <div class="center" %>
+        <button type="submit" class="button-new-design waves-effect waves-light btn-large">create design
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </button>
+    </div>
+    <%end%>
+</div>

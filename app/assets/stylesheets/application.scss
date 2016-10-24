@@ -15,140 +15,167 @@
   *= require font-awesome
   *= require commontator/application
   */
-
-  @import "materialize/components/color";
-  $primary-color: color("blue", "lighten-2") !default;
-  @import 'materialize';
-  @import "materialize/extras/nouislider";
-  @import "font-awesome";
-
-
- @media only screen and (max-width: 1000px) {
-  .row .col.m6 {
-     width: 100%;
-   }
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+@import 'materialize';
+@import "materialize/extras/nouislider";
+@import "font-awesome";
+@media only screen and (max-width: 1000px) {
+    .row .col.m6 {
+        width: 100%;
+    }
 }
-
 
 #toast-container {
-  position: absolute;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+
+    align-items: center;
+    justify-content: center;
 }
 
-
-button, html input[type="button"], input[type="reset"], input[type="submit"]{
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
     font-size: large;
     font-weight: initial;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
 
-body{
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: #ebebeb;
-  }
+    min-height: 100vh;
 
-.logo{
-  height: 120px;
-margin-bottom: 5%;
+    background-color: #ebebeb;
 }
 
-.btn{
-  background-color: #2196F3 !important;
-}
-  footer.page-footer {
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-
-.brand{
-   position:relative;
+.logo {
+    height: 120px;
+    margin-bottom: 5%;
 }
 
-video{
-  height: auto;
-  vertical-align: middle;
-  width: 100%;
+.btn {
+    background-color: #2196F3 !important;
 }
 
-
-
-.text-video{
-  background: rgba(0,0,0,0);
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
- }
- .text-video h2{
- text-align: center;
- }
-
-.red{
-  background-color: red !important;
+footer.page-footer {
+    margin-top: 0;
+    padding-top: 0;
 }
 
-.list-group-item{
-
+.brand {
+    position: relative;
 }
 
-.button-mod{
-border-radius: 6px;
-color: white;
-background-color: transparent !important;
-border: 1px white solid;
-letter-spacing: .7px;
-}
-.button-logout{
-border-radius: 6px;
-border: 1px white solid;
-background-color: red;
-letter-spacing: .7px;
-  }
-.button{
-  position: absolute;
-  top: 40%; right: 0; bottom: 0; left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-nav .index{
-  background-color: #0c070e;
+video {
+    width: 100%;
+    height: auto;
+
+    vertical-align: middle;
 }
 
-.colum-12-branding{
-  text-align: center;
-  height: auto;
-  background-color: #64b5f6;
-  color: #ffffff
+.text-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+
+    background: rgba(0,0,0,0);
+
+    align-items: center;
+    justify-content: center;
 }
+
+.text-video h2 {
+    text-align: center;
+}
+
+.red {
+    background-color: red !important;
+}
+
+.list-group-item {}
+
+.button-mod {
+    letter-spacing: 0.7px;
+
+    color: white;
+    border: 1px white solid;
+    border-radius: 6px;
+    background-color: transparent !important;
+}
+
+.button-logout {
+    letter-spacing: 0.7px;
+
+    border: 1px white solid;
+    border-radius: 6px;
+    background-color: red;
+}
+
+.button {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+nav .index {
+    background-color: #0c070e;
+}
+
+.colum-12-branding {
+    height: auto;
+
+    text-align: center;
+
+    color:#ffffff;
+    background-color: #64b5f6;
+}
+
 .content-brading {
-  background-color: #64b5f6;
-  color: #ffffff;
+    color: #ffffff;
+    background-color: #64b5f6;
 }
 
-.filter{
-  position: relative;
-  margin-top: 2%;
-}
-.filter img{
-  max-height: 150px;
-  max-height: 250px;
-}
-.image-medium img{
-  width: 450px;
-  height: 275px;
-}
-.top h6{
-  top: 10px;
+#upload {
+    display: none;
 }
 
-.button-new-design{
-margin: 2%; 
+.filter {
+    position: relative;
+
+    margin-top: 2%;
 }
-.circle-designs-card{
-  border-radius: 20px;
+
+.filter img {
+    max-height: 150px;
+    max-height: 250px;
+}
+
+.image-medium img {
+    width: 450px;
+    height: 275px;
+}
+
+.top h6 {
+    top: 10px;
+}
+
+.button-new-design {
+    margin: 2%;
+}
+
+.circle-designs-card {
+    border-radius: 20px;
 }

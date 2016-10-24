@@ -3,34 +3,31 @@
 <div id="toast-container">
 
     <script type="text/javascript">
-     Materialize.toast('<h5><%= flash[:error] %></h5>', 8000, 'red rounded' )
+        Materialize.toast('<h5><%= flash[:error] %></h5>', 8000, 'red rounded')
     </script>
 
 </div>
 
 <%end%>
-
 
 <% if flash[:success] %>
 
 <div id="toast-container">
 
     <script type="text/javascript">
-     Materialize.toast('<h5><%= flash[:success] %></h5>', 8000, 'yellow rounded' )
+        Materialize.toast('<h5><%= flash[:success] %></h5>', 8000, 'yellow rounded')
     </script>
 
 </div>
 
 <%end%>
 
-
-
 <% if flash[:notice] %>
 
 <div id="toast-container">
 
     <script type="text/javascript">
-     Materialize.toast('<h5><%= flash[:notice] %></h5>', 8000, 'blue rounded' )
+        Materialize.toast('<h5><%= flash[:notice] %></h5>', 8000, 'blue rounded')
     </script>
 
 </div>

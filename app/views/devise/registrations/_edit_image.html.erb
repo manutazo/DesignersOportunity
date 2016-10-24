@@ -1,0 +1,23 @@
+<div class="modal-content">
+    <form class="edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post" enctype="multipart/form-data"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="put"><input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <div class="row">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" name="user[avatar]">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="col s12">
+                    <button type="submit" class="waves-effect waves-light btn-large">upload image
+                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

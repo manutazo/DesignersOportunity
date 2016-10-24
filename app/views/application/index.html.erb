@@ -1,41 +1,43 @@
 <div class="brand">
-   <%= video_tag("video.mp4", autoplay: true, autobuffer: true ,controls: false, poster: "video.png")%>
-     <div class="text-video white-text">
+    <%= video_tag("video.mp4", autoplay: true, autobuffer: true ,controls: false, poster: "video.png")%>
+    <div class="text-video white-text">
         <h2>You want to make your designs popular?</h2>
-     </div>
-     <div class="button">
-       <%= button_to "Start", new_user_registration_path, :class => " button-mod waves-effect btn waves-light", method: :get %>
-     </div>
-  </div>
-
+    </div>
+    <div class="button">
+        <%= button_to "Start", new_user_registration_path, :class => " button-mod waves-effect btn waves-light", method: :get %>
+    </div>
+</div>
 
 <div class="row">
 
-  <div class="colum-12-branding col s12 ">
-     <h3>Your design published in less than 1 minute</h3>
-  </div>
-
-   <div class="content-brading col s12 m4 center">
-     <i class="material-icons medium">account_circle</i>
-     <h5><%=link_to "sign up", new_user_registration_path , method: :get%> or
-     <%=link_to "log in", new_user_session_path, method: :get %> on this website </h5>
-   </div>
-
-   <div class="content-brading col s12 m4 center">
-     <i class="material-icons medium">add_a_photo</i>
-     <h5>Choose the title, description and post your design</h5>
-   </div>
-
-   <div class="content-brading col s4 center">
-       <i class="material-icons medium">thumbs_up_down</i>
-        <i class="material-icons medium">question_answer</i>
-         <i class="material-icons medium">visibility</i>
-         </i>
-       </i>
-      </i>
-    <h5>Wait visits, votes and comments</h5>
+    <div class="colum-12-branding col s12 ">
+        <h3>Your design published in less than 1 minute</h3>
     </div>
 
- <%= render 'subscribers/new'%>
+    <div class="content-brading col s12 m4 center">
+        <i class="material-icons medium">account_circle</i>
+        <h5><%=link_to "sign up", new_user_registration_path , method: :get%>
+            or
+            <%=link_to "log in", new_user_session_path, method: :get %>
+            on this website
+        </h5>
+    </div>
+
+    <div class="content-brading col s12 m4 center">
+        <i class="material-icons medium">add_a_photo</i>
+        <h5>Choose the title, description and post your design</h5>
+    </div>
+
+    <div class="content-brading col s4 center">
+        <i class="material-icons medium">thumbs_up_down</i>
+        <i class="material-icons medium">question_answer</i>
+        <i class="material-icons medium">visibility</i>
+    </i>
+</i>
+</i>
+<h5>Wait visits, votes and comments</h5>
+</div>
+
+<%= render 'subscribers/new'%>
 
 </div>
