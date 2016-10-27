@@ -1,11 +1,10 @@
 class DesignsController < ApplicationController
-    before_action :find_params, only: [:show, :edit]
+    before_action :find_params, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+    before_action :propetary, only: [:show]
     before_action :authenticate_user!, except: [:index, :designs]
     before_action :authenticate_propetary, only: [:edit, :update, :Destroy]
 
     def show
-        @design = find_params
-        @propetary = propetary
         commontator_thread_show(@design)
     end
 
@@ -52,7 +51,6 @@ class DesignsController < ApplicationController
     end
 
     def update
-        @design = find_params
         if  @design.update(design_params)
             redirect_to @design
         else
@@ -61,19 +59,16 @@ class DesignsController < ApplicationController
     end
 
     def destroy
-        @design = find_params
         @design.destroy
         redirect_to '/designs'
     end
 
     def upvote
-        @design = find_params
         @design.upvote_by current_user
         redirect_to '/designs'
     end
 
     def downvote
-        @design = find_params
         @design.downvote_by current_user
         redirect_to '/designs'
     end
@@ -102,7 +97,7 @@ class DesignsController < ApplicationController
     end
 
     def propetary
-        @designers = User.where(id: @design.user_id)
+        @propetary = User.where(id: @design.user_id)
     end
 
     def authenticate_propetary

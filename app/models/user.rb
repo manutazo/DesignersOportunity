@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
+    has_many :designs, dependent: :destroy
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
     validates :email, presence: true, uniqueness: true, on: :create
     validates_format_of :email, with: Devise.email_regexp, allow_blank: true, if: :email_changed?
@@ -18,29 +19,42 @@ class User < ApplicationRecord
     validates :last_name, on: :create, length: { maximum: 11, minimum: 3 }
     validates :description, on: :create, length: { maximum: 60 }
     validates_each :birthday do |record, attr, value|
-        record.errors.add(attr, 'must be in the past') if value >= Time.now.to_date
-    end
-
-    validates_each :birthday do |record, attr, value|
-        record.errors.add(attr, 'must be less than 150 years in the past')
-        if value <= (Time.now.to_date - 125.years)
+        record.errors.add(attr, 'birthday wrong') if value >= Time.now.to_date
+        unless value <= (Time.now.to_date - 125.years)
         end
-    end
-
-    has_many :designs, dependent: :destroy
-    has_attached_file :avatar, styles: {
-        medium: '300x300>',
-        thumb: {
-            geometry: '100x100>',
-            processor_options: {
-                compression: {
-                    png: false,
-                    jpeg: '-copy none -optimize'
-                }
-            }
-        }
-    },
-                               processors: [:thumbnail, :compression]
+      end
+    validate :image_present
+    has_attached_file :avatar, content_type: %w(image/jpeg image/jpg image/png image/gif),
+                              message: 'is not gif, png, jpg, or jpeg.',
+                              styles: {
+                                  medium: '300x300>',
+                                  thumb: {
+                                      geometry: '100x100>',
+                                      processor_options: {
+                                          compression: {
+                                              png: false,
+                                              jpeg: '-copy none -optimize'
+                                          }
+                                      }
+                                  }
+                              },
+                              processors: [:thumbnail, :compression]
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+    attr_accessor :base64_thumbnail_image
     acts_as_commontator
+
+    def save_base64_thumbnail_image
+        if base64_thumbnail_image.present?
+            file_path = "tmp/foo_bar_thumbnail_image_#{id}.png"
+            File.open(file_path, 'wb') { |f| f.write(Base64.decode64(base64_thumbnail_image)) }
+            # set the paperclip attribute and let it do its thing
+            self.thumbnail_image = File.new(file_path, 'r')
+        end
+      end
+
+      def image_present
+        if avatar.present? && avatar_file_size < 2.megabytes
+          errors.add(:file_size, "file size must be between 0 and 2 megabytes.")
+        end
+      end
 end
