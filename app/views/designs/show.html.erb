@@ -1,4 +1,7 @@
 <div class="row">
+  <div id="modal1" class="modal">
+  <%= render partial: "designs/edit"%>
+</div>
     <div class="col s12 m6">
         <div class="card darken-1">
             <div class="card-content">
@@ -60,13 +63,16 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul>
-                    <a <i class="btn-floating yellow" <%=link_to edit_design_path(@design), method: "get" do%> class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
+                  <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+
+                    <a class="btn-floating yellow" <%=link_to edit_design_path(@design), method: "get" do%><i class="material-icons">mode_edit</i></a>
+
+
                 <% end %>
-                <a <i class="btn-floating blue darken-1" <%=link_to new_design_path, method: "get" do%> class="fa fa-plus-circle" aria-hidden="true"></i>
+                <a  class="btn-floating blue darken-1" <%=link_to new_design_path, method: "get" do%><i class="material-icons">library_add</i>
             </a>
             <% end %>
-            <a <i class="btn-floating red darken-1" <%= link_to design_path(@design), method: :delete, data: { confirm: "It will remove this design, are sure?" } do%> class="fa fa-trash-o" aria-hidden="true"></i>
+            <a class="btn-floating red darken-1" <%= link_to design_path(@design), method: :delete, data: { confirm: "It will remove this design, are sure?" } do%> <i class="material-icons">delete</i>
         </a>
         <% end %>
     </ul>

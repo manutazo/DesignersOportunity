@@ -2,7 +2,6 @@ class Design < ApplicationRecord
     is_impressionable
     acts_as_votable
     belongs_to :user
-    validate :image_present
     validates :title, presence: true,
                       uniqueness: true, length: { maximum: 30, minimum: 4 }
     validates :description, presence: true,
@@ -35,12 +34,6 @@ class Design < ApplicationRecord
             File.open(file_path, 'wb') { |f| f.write(Base64.decode64(base64_thumbnail_image)) }
             # set the paperclip attribute and let it do its thing
             self.thumbnail_image = File.new(file_path, 'r')
-        end
-      end
-
-      def image_present
-        if image.present? && image_file_size < 2.megabytes
-          errors.add(:file_size, "file size must be between 0 and 2 megabytes.")
         end
       end
 

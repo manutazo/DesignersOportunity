@@ -34,12 +34,6 @@
 
                 <div class="row">
                     <div class="col s12 m6">
-                        <label class="col-sm-2 control-label active" for="user_name">birthday</label>
-                        <div class="col-sm-6">
-                            <%= date_field(:user, :birthday, class: 'datepicker') %>
-                        </div>
-                    </div>
-                    <div class="col s12 m6">
                         <label class="col-sm-2 control-label active" for="user_name">designer nick
                             <i class="material-icons tooltipped tiny" data-position="top" data-delay="50" data-tooltip="the username which will be shown in designs">info
                             </i>
@@ -48,10 +42,7 @@
                             <%= f.text_field :name,  class: 'input',autofocus: true %>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col s12 ">
+                    <div class="col s12 m6">
                         <label class="col-sm-2 control-label active" for="user_email">Email</label>
                         <div class="col-sm-6">
                             <%= f.email_field :email, class: 'input' %>

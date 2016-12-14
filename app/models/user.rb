@@ -3,27 +3,21 @@ class User < ApplicationRecord
     # :confirmable, :lockable, :timeoutable and :omniauthable
     has_many :designs, dependent: :destroy
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-    validates :email, presence: true, uniqueness: true, on: :create
+    validates :name, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true
     validates_format_of :email, with: Devise.email_regexp, allow_blank: true, if: :email_changed?
     validates_confirmation_of :password
-    validates :password, presence: true, on: :create
+    validates :password, presence: true
 
     validates_length_of :password,
                         within: Devise.password_length, allow_blank: true
 
     validates_uniqueness_of :name,
                             case_sensitive: false, allow_blank: true, if: :name_changed?, length: { maximum: 11, minimum: 3 }
-
-    validates :birthday, presence: true, on: :create
-    validates :first_name, on: :create, length: { maximum: 11, minimum: 3 }
-    validates :last_name, on: :create, length: { maximum: 11, minimum: 3 }
-    validates :description, on: :create, length: { maximum: 60 }
-    validates_each :birthday do |record, attr, value|
-        record.errors.add(attr, 'birthday wrong') if value >= Time.now.to_date
-        unless value <= (Time.now.to_date - 125.years)
-        end
-      end
-    validate :image_present
+    validates :first_name, length: { maximum: 11, minimum: 3 }
+    validates :last_name, length: { maximum: 11, minimum: 3 }
+    validates :description, length: { maximum: 60 }
+    # validate :image_present
     has_attached_file :avatar, content_type: %w(image/jpeg image/jpg image/png image/gif),
                               message: 'is not gif, png, jpg, or jpeg.',
                               styles: {
@@ -57,4 +51,5 @@ class User < ApplicationRecord
           errors.add(:file_size, "file size must be between 0 and 2 megabytes.")
         end
       end
+
 end

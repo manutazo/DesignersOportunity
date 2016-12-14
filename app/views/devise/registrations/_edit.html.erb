@@ -23,13 +23,7 @@
                     <label class="col-sm-2 control-label active" for="user_name">last name</label>
                     <input autofocus="autofocus" class="input" type="text" value="<%=current_user.last_name%>" name="user[last_name]" id="user_last_name">
                 </div>
-                <div class="col s12 m6">
-                    <label class="col-sm-2 control-label active" for="user_name">birthday</label>
-                    <div class="col-sm-6">
-                        <input type="date" class="datepicker" value="<%=current_user.birthday%>" name="user[birthday]" id="user_birthday">
-                    </div>
-                </div>
-                <div class="col s12 m6">
+                <div class="col s12">
                     <label class="col-sm-2 control-label active" for="user_password">Change Password</label>
                     <input placeholder="write new password" autocomplete="off" class="input" type="password" name="user[password]" id="user_password">
                 </div>

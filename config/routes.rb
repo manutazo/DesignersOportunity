@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     get '/' => 'application#index', as: 'index'
     get '/account' => 'users#show', as: 'account'
-    get 'designs' => 'designs#designs', as: 'designs'
+    get 'designs' => 'designs#show_all', as: 'designs'
     get 'designer/:id' => 'designs#designer', as: 'designer'
     post 'designs' => 'designs#create'
 

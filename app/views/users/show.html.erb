@@ -42,8 +42,6 @@
                     <%=user.first_name%></li>
                 <li class="collection-item">last name:
                     <%=user.last_name%></li>
-                <li class="collection-item">birthday:
-                    <%=user.birthday.strftime("%d %b %y")%></li>
                 <% if user.description.nil? %>
                 <a class="collection-item modal-trigger" href="#modal1">Please describe here to you know</a>
                 <%else%>
@@ -67,8 +65,7 @@
 </div>
 <div class="col s12 m6">
     <div class="card darken-1">
-        <div class="card-content"><a class="waves-effect waves-light btn" <%= link_to 'view my desigs', designer_path(user.id) %></a>
-        <%=image_tag("graphics-not-available", style: "padding: 2%;")%>
+<%= column_chart @designs_count %>
     </div>
 </div>
 

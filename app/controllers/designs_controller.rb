@@ -8,10 +8,6 @@ class DesignsController < ApplicationController
         commontator_thread_show(@design)
     end
 
-    def new
-        @design = current_user.designs.new
-    end
-
     def filter_gender
     end
 
@@ -46,7 +42,7 @@ class DesignsController < ApplicationController
         end
     end
 
-    def designs
+    def show_all
         @designs = Design.page(params[:page]).per(9)
     end
 
